@@ -13,10 +13,10 @@
     <link rel="stylesheet" href="assets/app.css"/>
   </head>
 
-  <body ng-app="starterApp" layout="column" ng-controller="UserController as ul">
+  <body ng-app="starterApp" layout="column" ng-controller="UserController as controller">
 
     <md-toolbar layout="row">
-      <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+      <md-button class="menu" hide-gt-sm ng-click="controller.toggleList()" aria-label="Show User List">
         <md-icon md-svg-icon="menu" ></md-icon>
       </md-button>
       <h1>Angular Material - Starter App</h1>
@@ -26,23 +26,63 @@
 
         <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2" md-component-id="left">
           <md-list>
-            <md-item ng-repeat="it in ul.users">
-                <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
+<!--             <md-item ng-repeat="it in controller.users">
+                <md-button ng-click="controller.selectUser(it)" ng-class="{'selected' : it === controller.selected }">
                   <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
                   {{it.name}}
                 </md-button>
+            </md-item> -->
+            <md-item >
+              <md-button layout="row" class="md-button" href="#abc">
+              	<md-icon md-svg-icon="./assets/svg/google_plus.svg" class="avatar"></md-icon>
+                <div>
+                	<h3>Contact</h3>
+                	<p>How do I contact</p>
+                </div>
+              </md-button>
             </md-item>
+
+            <md-list-item class="md-3-line" layout="row">
+              <md-button layout="row" class="md-button" href="#asd">
+              	<md-icon md-svg-icon="./assets/svg/google_plus.svg" class="avatar"></md-icon>
+                <div>
+                	<h3>Reels</h3>
+                	<p>Narrative and Non-Fiction</p>
+                </div>  
+              </md-button>
+            </md-list-item>
+
+            <md-list-item class="md-3-line" layout="row">
+              <md-button layout="row" class="md-button" href="#abc">
+                <md-icon md-svg-icon="./assets/svg/google_plus.svg" class="avatar"></md-icon>
+                <div>
+                  <h3>Qualifications</h3>
+                  <p>Why I am the best</p>
+                </div>
+              </md-button>
+            </md-list-item>
+
+            <md-list-item class="md-3-line" layout="row">
+              <md-button layout="row" class="md-button" href="#abc">
+                <md-icon md-svg-icon="./assets/svg/google_plus.svg" class="avatar"></md-icon>
+                <div>
+                  <h3>Equipments</h3>
+                  <p>What I use to do my work</p>
+                </div>  
+              </md-button>
+            </md-list-item>
+            
           </md-list>
         </md-sidenav>
 
-        <md-content flex id="content">
-          <md-icon md-svg-icon="{{ul.selected.avatar}}" class="avatar"></md-icon>
-          <h2>{{ul.selected.name}}</h2>
-          <p>{{ul.selected.content}}</p>
+        <md-content ng-view flex id="content"><!-- 
+          <md-icon md-svg-icon="{{controller.selected.avatar}}" class="avatar"></md-icon>
+          <h2>{{controller.selected.name}}</h2>
+          <p>{{controller.selected.content}}</p>
 
-          <md-button class="share" md-no-ink ng-click="ul.share($event)" aria-label="Share">
+          <md-button class="share" md-no-ink ng-click="controller.share($event)" aria-label="Share">
             <md-icon md-svg-icon="share"></md-icon>
-          </md-button>
+          </md-button> -->
         </md-content>
 
     </div>
