@@ -3,12 +3,12 @@
   <head>
     <title>Angular Material - Starter App</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content=""/>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
 
-    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'/>
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
     <link rel="stylesheet" href="assets/app.css"/>
   </head>
@@ -19,31 +19,31 @@
       <md-button class="menu" hide-gt-sm ng-click="controller.toggleList()" aria-label="Show User List">
         <md-icon md-svg-icon="menu" ></md-icon>
       </md-button>
-      <h1>Angular Material - Starter App</h1>
+      <h1>John Chen - Starter App</h1>
     </md-toolbar>
 
     <div flex layout="row">
 
-        <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2" md-component-id="left">
-          <md-list>
+      <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2" md-component-id="left">
+        <md-list>
 <!--             <md-item ng-repeat="it in controller.users">
                 <md-button ng-click="controller.selectUser(it)" ng-class="{'selected' : it === controller.selected }">
                   <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
                   {{it.name}}
                 </md-button>
-            </md-item> -->
-            <md-item >
-              <md-button layout="row" class="md-button" href="#abc">
-              	<md-icon md-svg-icon="./assets/svg/google_plus.svg" class="avatar"></md-icon>
-                <div>
-                	<h3>Contact</h3>
-                	<p>How do I contact</p>
-                </div>
-              </md-button>
-            </md-item>
+              </md-item> -->
+              <md-item >
+                <md-button layout="row" class="md-button" href="#/contact">
+                 <md-icon md-svg-icon="./assets/svg/google_plus.svg" class="avatar"></md-icon>
+                 <div>
+                   <h3>Contact</h3>
+                   <p>How do I contact</p>
+                 </div>
+               </md-button>
+             </md-item>
 
-            <md-list-item class="md-3-line" layout="row">
-              <md-button layout="row" class="md-button" href="#asd">
+             <md-list-item class="md-3-line" layout="row">
+              <md-button layout="row" class="md-button" href="#/reels">
               	<md-icon md-svg-icon="./assets/svg/google_plus.svg" class="avatar"></md-icon>
                 <div>
                 	<h3>Reels</h3>
@@ -53,7 +53,7 @@
             </md-list-item>
 
             <md-list-item class="md-3-line" layout="row">
-              <md-button layout="row" class="md-button" href="#abc">
+              <md-button layout="row" class="md-button" href="#/qualifications">
                 <md-icon md-svg-icon="./assets/svg/google_plus.svg" class="avatar"></md-icon>
                 <div>
                   <h3>Qualifications</h3>
@@ -63,7 +63,7 @@
             </md-list-item>
 
             <md-list-item class="md-3-line" layout="row">
-              <md-button layout="row" class="md-button" href="#abc">
+              <md-button layout="row" class="md-button" href="#/equipments">
                 <md-icon md-svg-icon="./assets/svg/google_plus.svg" class="avatar"></md-icon>
                 <div>
                   <h3>Equipments</h3>
@@ -71,7 +71,7 @@
                 </div>  
               </md-button>
             </md-list-item>
-            
+
           </md-list>
         </md-sidenav>
 
@@ -85,39 +85,55 @@
           </md-button> -->
         </md-content>
 
-    </div>
+      </div>
 
-    <script src="./bower_components/angular/angular.js"></script>
-    <script src="./bower_components/angular-animate/angular-animate.js"></script>
-    <script src="./bower_components/angular-aria/angular-aria.js"></script>
-    <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
+      <script src="./bower_components/angular/angular.js"></script>
+      <script src="./bower_components/angular-animate/angular-animate.js"></script>
+      <script src="./bower_components/angular-aria/angular-aria.js"></script>
+      <script src="./bower_components/angular-route/angular-route.js"></script>
+      <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
 
-    <script src="./src/users/Users.js"></script>
-    <script src="./src/users/UserController.js"></script>
-    <script src="./src/users/UserService.js"></script>
+      <script src="./src/users/Users.js"></script>
+      <script src="./src/users/UserController.js"></script>
+      <script src="./src/users/UserService.js"></script>
 
-    <script type="text/javascript">
+      <script type="text/javascript">
 
-          angular
-              .module('starterApp', ['ngMaterial', 'users'])
-              .config(function($mdThemingProvider, $mdIconProvider){
+      angular
+      .module('starterApp', [
+        'ngMaterial', 
+        'ngRoute',
+        'users'
+        ])
+      .config(function($mdThemingProvider, $mdIconProvider){
 
-                  $mdIconProvider
-                      .defaultIconSet("./assets/svg/avatars.svg", 128)
-                      .icon("menu"       , "./assets/svg/menu.svg"        , 24)
-                      .icon("share"      , "./assets/svg/share.svg"       , 24)
-                      .icon("google_plus", "./assets/svg/google_plus.svg" , 512)
-                      .icon("hangouts"   , "./assets/svg/hangouts.svg"    , 512)
-                      .icon("twitter"    , "./assets/svg/twitter.svg"     , 512)
-                      .icon("phone"      , "./assets/svg/phone.svg"       , 512);
+        $mdIconProvider
+        .defaultIconSet("./assets/svg/avatars.svg", 128)
+        .icon("menu"       , "./assets/svg/menu.svg"        , 24)
+        .icon("share"      , "./assets/svg/share.svg"       , 24)
+        .icon("google_plus", "./assets/svg/google_plus.svg" , 512)
+        .icon("hangouts"   , "./assets/svg/hangouts.svg"    , 512)
+        .icon("twitter"    , "./assets/svg/twitter.svg"     , 512)
+        .icon("phone"      , "./assets/svg/phone.svg"       , 512);
 
-                      $mdThemingProvider.theme('default')
-                          .primaryPalette('brown')
-                          .accentPalette('red');
+        $mdThemingProvider.theme('default')
+        .primaryPalette('brown')
+        .accentPalette('red');
 
-              });
+      })
+      .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
 
-    </script>
+        $routeProvider.when('/', {templateUrl:'contact.html'});
+        $routeProvider.when('/contact', {templateUrl:'contact.html'});
+        $routeProvider.when('/reels', {templateUrl:'reels/reels.html', controller:'ReelsController as controller'});
+        $routeProvider.when('/qualifications', {templateUrl:'qualifications.html'});
+        $routeProvider.when('/equipments', {templateUrl:'equipments.html'});
+        // $routeProvider.otherwise({redirectTo:'/'});
 
-  </body>
-</html>
+
+      }]);;
+
+      </script>
+
+    </body>
+  </html>
